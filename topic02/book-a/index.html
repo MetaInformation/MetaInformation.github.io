@@ -1,0 +1,256 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Introduction to editing XML files
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-03">
+        Lab-03
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-03">
+    <h1>Objectives</h1>
+<ul>
+<li>Nesting XMl elements</li>
+<li>Adding attributes</li>
+<li>Empty elements</li>
+<li>Wrting comments</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Nesting Elements</h1>
+<p>Open Eclipse. Make sure you are pointing to the correct Workspace. Where did you setup your workspace last week? G drive? Usb pen? or Desktop.
+If you have pointed to the correct workspace you will see last weeks project and in the WebContent folder you should have one xml file from last weeks lab.</p>
+<p>You can now add to that XML file so it looks as below:</p>
+<pre><code>&lt;ancient_wonders&gt;
+  &lt;wonder&gt;
+      &lt;name&gt;Colossus of Rhodes&lt;/name&gt;
+      &lt;location&gt;Rhodes, Greece&lt;/location&gt;
+      &lt;height&gt;107&lt;/height&gt;
+  &lt;/wonder&gt;
+&lt;ancient_wonders&gt;
+
+</code></pre>
+
+<p>The wonder element is nested as a child of the ancient_wonders element, and name, location, and height are nested as child elements of the wonder element.</p>
+<p>It is essential that each element be completely enclosed in another. In other words, you may not write the closing tag for the outer element until the inner element is closed. Otherwise, the document will not be considered well-formed, and will generate an error in the XML processor.</p>
+<p>You can nest as many levels of elements as you like. When nesting elements, best practices suggest that you indent the child element. This enables you to easily see parent, child and sibling relationships. Many XML editors will automatically do this for you.</p>
+<p>Edit your XML file to reflect the above code.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Adding Attributes</h1>
+<p>An attribute stores additional information about an element, without adding text to the elements content itself.
+Attributes are known as "name-value" pairs and are contained within the opening tag of an element.</p>
+<pre><code>&lt;wonder&gt;
+    &lt;name&gt;Colossus of Rhodes&lt;/name&gt;
+    &lt;location&gt;Rhodes, Greece&lt;/location&gt;
+    &lt;height unit=&quot;feet&quot;&gt;107&lt;/height&gt;
+&lt;/wonder&gt;
+
+</code></pre>
+
+<p>Edit your XML file to reflect the above code.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Empty Elements</h1>
+<p>An element with no content is an empty element.</p>
+<pre><code>&lt;wonder&gt;
+   &lt;name&gt;Colossus of Rhodes&lt;/name&gt;
+   &lt;location&gt;Rhodes, Greece&lt;/location&gt;
+   &lt;height unit=&quot;feet&quot;&gt;107&lt;/height&gt;
+   &lt;main_image image=&quot;colussus.jpg&quot; w=&quot;528&quot; h=&quot;349&quot;/&gt;
+&lt;/wonder&gt;
+
+</code></pre>
+
+<p>Edit your XML file to reflect the above code.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Writing Comments</h1>
+<p>Annotate your XML documents so that you know why you used a particular element, or what a piece of information specifically means.</p>
+<pre><code>&lt;!--Reserach on this wonder of the world was conducted by J.Doe--&gt;
+&lt;wonder&gt;
+   &lt;name&gt;Colossus of Rhodes&lt;/name&gt;
+   &lt;location&gt;Rhodes, Greece&lt;/location&gt;
+   &lt;height unit=&quot;feet&quot;&gt;107&lt;/height&gt;
+   &lt;main_image=&quot;colussus.jpg&quot; w=&quot;528&quot; h=&quot;349&quot;/&gt;
+&lt;/wonder&gt;
+
+</code></pre>
+
+<p>Edit your XML file to reflect the above code.
+Save your file.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h2>Exercises</h2>
+<h1>Exercise 1</h1>
+<p>Create a new XML file in your current project. Do this by clicking New -&gt; Other - XML file
+It should be created within your project folder.</p>
+<p>The following example shows a poorly formed XML instance.</p>
+<pre><code>&lt;?XML version=1.0 encoding=”ISO-8859-1”&gt;
+&lt;cd number=”432&gt;
+&lt;title&gt; The best of Van Morrison &lt;/Title&gt;
+&lt;artist&gt; Van Morrison &lt;/artists&lt;
+&lt;tracks total =20”&gt;
+&lt;cd number=97&gt;
+&lt;title&gt; Rockferry&lt;title&gt;
+&lt;artist&gt; Duffy &lt;Artist&gt;
+&lt;tracks total=16&gt;
+&lt;CD&gt;
+</code></pre>
+
+<p>Remember the 5 rules for XML files:
+ - XML documents must have a root element
+ - XML elements must have a closing tag
+ - XML tags are case sensitive
+ - XML elements must be properly nested
+ - XML attribute values must be quoted</p>
+<p>The objective behind this document is to list two music albums with some details about each.  Based on what we have covered in class regarding the syntax rules that must be followed in XML, document all the errors that you can find and then create a new project called songs_catalog and create a new songs.xml file enter the correct version of this xml file into your editor and save.</p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Dr. Brenda Mullally (bmullally@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
