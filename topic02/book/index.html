@@ -1,0 +1,325 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Introduction to editing XML files
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-02">
+        Lab-02
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="03">
+        03
+      </a>
+      <a class="item" data-tab="04">
+        04
+      </a>
+      <a class="item" data-tab="05">
+        05
+      </a>
+      <a class="item" data-tab="06">
+        06
+      </a>
+      <a class="item" data-tab="">
+        
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-02">
+    <h1>Objectives</h1>
+<ul>
+<li>Introduction to XML</li>
+<li>Writting XML using an editor</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>XML editors</h1>
+<p>There are many options for editing XML. If you are familiar with Eclipse you can use it for editing.
+In Eclipse you can view a project in different perspectives. If you use the Web perspective and in creating a file you choose a new XML file Eclipse will then treat the code you enter as XML tags etc.</p>
+<p>Alternatively you can download a free XML editor.</p>
+<p>Either option is suitable. These labs will show use of Eclipse but a free XML editor like EditiX 
+<a href="http://free.editix.com/download.html">http://free.editix.com/download.html</a> is easy to learn and use if you prefer to try it.</p>
+<p>There are also lots of other editors you may prefer to use as there is no requirement to use a particular editor for this module.</p>
+<p>Step3 in this lab will instruct you in the download and installation of Eclipse.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>Introduction to XML</h1>
+<p>XML or eXtensible Markup Language is a specification for storing data. It is also a specification for describing the structure of that data.</p>
+<p>While XML is a markup language just like HTML, XML has no tags of its own. It allows you to create whatever tags you need.
+The only condition is that these newly created tags adhere to the rules of the XML specification.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;my_children&gt;
+
+  &lt;child&gt;   
+    &lt;name&gt; Logan &lt;/name&gt;
+    &lt;gender&gt;Male&lt;/gender&gt;
+    &lt;age&gt;18&lt;/age&gt;
+  &lt;/child&gt;
+
+  &lt;child&gt;
+    &lt;name&gt;Rebecca&lt;/name&gt;
+    &lt;gender&gt;Female&lt;/gender&gt;
+    &lt;age&gt;14&lt;/age&gt;
+  &lt;/child&gt;
+
+&lt;/my_children&gt;
+
+</code></pre>
+
+<p>In the journal in Moodle answer the following questions:</p>
+<ul>
+<li>What data is being stored?</li>
+<li>What is the structure of the data?</li>
+<li>What tags were created to describe the data and its structure?</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="03">
+    <h1>Writting XML</h1>
+<p>XML, like HTML can be written using any text editor or word processor.
+Eclipse is an editor that offers additional support for writting HTML, CSS and XML documents.</p>
+<p>Eclipse is installed on the college machines.</p>
+<p>Open Windows Explorer and navigate to the C:\ drive, there you should find a dev folder, in which there is an eclipse folder. Open the Javascript folder and double click on the eclipse icon.</p>
+<p>If you are successful opening this version of eclipse on the college pc you can continue on to step 4. If you wish to download eclipse for your laptop or pen drive, please read on.</p>
+<p>To download a copy of eclipse for your laptop go to </p>
+<ul>
+<li><a href="https://www.eclipse.org/downloads">https://www.eclipse.org/downloads</a></li>
+</ul>
+<p>Download the first version in the list, it is called Eclipse IDE for Java EE Developers. </p>
+<p><img alt="" src="./img/04.png"></p>
+<p>Once this has downloaded extract the zip file to your chosen directory on your laptop. You can then navigate to that directory and start eclipse by double clicking on the icon. Now go to step4</p>
+<p>It is also possible to intall a portable version on your usb pen drive if you need to. </p>
+<p>Follow the steps below to install the eclipse editor on your pen drive.</p>
+<ul>
+<li>Download the portable eclipse zip file from the current topic area in Moodle.</li>
+<li>This is a standard zip archive - not an install program. Place it on your desktop and unarchive it.</li>
+<li>When unarchived, it will have created a folder on your desktop called "portable-eclipse"</li>
+<li>Assuming you have a memory stick, copy this folder to that stick now. This will take approximately 2-3 minutes.</li>
+<li>Once it has copied over, navigate to your desktop and explore the new "portable-eclipse" folder</li>
+<li>Navigate to the eclipse folder and in there you will notice the program "eclipse"</li>
+<li>double click to launch it now.</li>
+<li>It should launch in about 30 second.</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h1>Eclipse</h1>
+<ul>
+<li>Once you have lauched eclipse at first you will see this splash screen:</li>
+</ul>
+<p><img alt="" src="./img/02.png"></p>
+<ul>
+<li>And then it will eventually display this dialog box, Before pressing "OK", read the suggested path carefully:</li>
+<li>This is the path where eclipse will create and manage any XML  projects you create. If you are working on the college pc then the suggested path is almost certainly not going to contain the path we wish to use. </li>
+<li>You may choose to use either the G: drive, or the memory stick drive (perhaps I:). Whichever drive you use, append ":\XMLworkspace" to the drive letter. </li>
+<li>
+<p>If you are using your own laptop then create a XMLworkspace folder on your desktop  and navigate to it so that you are pointing to that folder.
+<img alt="" src="./img/03.png"></p>
+</li>
+<li>
+<p>It is very important to set up the wrokspace folder correctly today and not to change it for the rest of the semester. Eclipse does not like if you change the workspace folder.</p>
+</li>
+<li>Press OK to accept the workspace you have chosen. After a few seconds, Eclipse should launch looking like this:</li>
+</ul>
+<p><img alt="" src="./img/05.png"></p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="05">
+    <h1>XML uses the same building blocks as HTML:</h1>
+<p>Tags that define elements, values of those elements, and attributes. 
+An XML element is the most basic unit of your document. It can contain text, attributes, and other elements.</p>
+<p>An element has an opening tag with a name written between the &lt; and the &gt;
+The name, which you invent yourself, should describe the element's purpose and in particular its contents.</p>
+<p>Elements may have attributes. Atrributes, which are contained wihtin an element's opening tag, have quotation mark delimited values that further describe the purpose and content of the particular element.
+<img alt="" src="./img/05.png">
+<img alt="" src="./img/attributes.bmp"></p>
+<p>An element can have as many attributes as required, as long as each has a unique name.</p>
+<p>White space: you can add extra white space, including line breaks, around the elements in your XML code to make it easier to edit and view. While extra white space is visible in the file and when passed to other applications, it is ignored by the XML processor, just as it is with HTML in a browser.</p>
+<h1>Eclipse</h1>
+<ul>
+<li>Select File-&gt;New-&gt;Other"
+<img alt="" src="./img/06.png"></li>
+<li>in the next screen select "Static Web Project"
+<img alt="" src="./img/07.png"></li>
+<li>Press "Next" and then give the project a name:
+<img alt="" src="./img/08.png"></li>
+<li>Press "Finish". You will be asked if the project should have a "web perspective":
+<img alt="" src="./img/09.png"></li>
+<li>Select Yes - and you should now have an empty project:
+<img alt="" src="./img/10.png"></li>
+<li>Select "New" and then "other" as shown.
+<img alt="" src="./img/12.png"></li>
+<li>Select XML file as shown and click Next.
+<img alt="" src="./img/12b.png"></li>
+<li>Give the file a name - and press finish. This will create a new xml file:
+<img alt="" src="./img/13.png"></li>
+<li>Note the generated code, and add the tag <code>&lt;ancient_wonders</code>&gt;, eclipse will automatically create a closing tag for you:
+<img alt="" src="./img/14.png"></li>
+<li>Note the * in front of the file name in the tab view. This indicates that the file has not been saved yet. Save the file (File-&gt;Save) and observe the * disappear.</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="06">
+    <h1>Exercise 1</h1>
+<p>You should now have an xml file with one element called ancient_wonders.</p>
+<p>You can now add any child elements you like. The idea is that there is a relationship between the root, or parent element, and its child element. When creating child elements, use names that clearly identify the content so that it's easier to process the information at a later date.</p>
+<ul>
+<li>Type <code>&lt;wonder</code>&gt;, where wonder identifies the content that is about to appear (name of the child element).</li>
+<li>Type Colossus of Rhodes as the content of the <code>&lt;wonder</code>&gt; element.</li>
+<li>Type the closing <code>&lt;/wonder</code>&gt; tag.</li>
+</ul>
+<p>Your xml file should look like this:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;ancient_wonders&gt;
+  &lt;wonder&gt;Colossus of Rhodes&lt;/wonder&gt;
+&lt;/ancient_wonders&gt;
+
+</code></pre>
+
+<p>Indentation of code is very important for readability. You should indent 2 spaces each time you create a child element.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="">
+    <h1>Tips</h1>
+<ul>
+<li>Case matters. <code>&lt;WONDER</code>&gt; is not the same as <code>&lt;wonder</code>&gt;</li>
+<li>Element (and attribute) names should be short and descriptive.</li>
+<li>Element and attrribute names must begin with a letter, an underscore, or a colon. Names that begin with the letter xml (in any combination of upper or lower case) are reserved and cannot be used.</li>
+<li>Element and attribute names may contain any number of letters, digits, underscores, and a few other punctuation characters.</li>
+<li>Although colons, hyphens, and full stop are valid within element and attribute names, it is recommended not to use these are they are used in specific circumstances (such as for namespaces, subtraction, and object properties).</li>
+<li>No elements are allowed outside the opening and closing root tags.</li>
+</ul>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Dr. Brenda Mullally (bmullally@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
