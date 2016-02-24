@@ -1,0 +1,5 @@
+<!ELEMENT date (
+    (year, ((month, day) | (day, month)))
+    | (month, ((year, day) | (day, year)))
+    | (day, (month, year) | (year, month)))
+    )>
