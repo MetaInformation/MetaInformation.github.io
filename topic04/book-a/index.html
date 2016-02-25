@@ -95,6 +95,12 @@ h3
       <a class="item" data-tab="01">
         01
       </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
     </div>
 </div>
 
@@ -103,73 +109,125 @@ h3
   <div  class="ui tab segment lab" data-tab="Lab-6">
     <h1>Objectives</h1>
 <ul>
-<li>Start to design your XML file for your continuous assessment.</li>
+<li>Complete the XML file for the CouchManager blog.</li>
+<li>Create a DTD file for the CouchManager XML file.</li>
 </ul>
   </div>
   <div  class="ui tab segment lab" data-tab="01">
     <h1>Continuous Assessment</h1>
-<p>On paper first identify ideas of data you may wish to store for the continuous assessment.</p>
-<p>Some the ideas for areas you might define data for are as follows:</p>
+<p>Open your Lab4 project in eclipse that contains your couch manager blog xml file.</p>
+<p>The following shows an example of the elements you may decide to have in your couchmanager xml file.
+Make sure you have all of these elements or the equivalent ones that you have named. 
+Also ensure you have some data in each element. Take the data from the blog website (cut and past text, and save images).</p>
+<p><img alt="" src="../img/01.bmp"></p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>DTD file</h1>
+<p>Your blog file should be something like:</p>
 <ul>
-<li>a food menu</li>
-<li>a catalog of computer parts</li>
-<li>a magazine </li>
-<li>a library book</li>
-<li>social networking profiles</li>
-<li>itunes music</li>
-<li>movies</li>
-<li>addressbook</li>
-<li>gym membership</li>
-<li>doctors patients</li>
-<li>ebay auction items</li>
-<li>ebay seller information</li>
-<li>A bus schedule </li>
-<li>A family tree (genealogy) </li>
-<li>An email log </li>
-<li>A recipe book </li>
-<li>A menu </li>
-<li>A travel catalog </li>
-<li>TV-listings</li>
-<li>Meeting minutes </li>
+<li>blog - title, author, post</li>
+<li>post - post_title, date, content, comment</li>
+<li>date - day, month, year</li>
+<li>content - paragraph</li>
+<li>paragraph - text, image</li>
+<li>comment - date, author, content</li>
 </ul>
-<p>See how many data elements you can come up with for the business or topic area you are interested in.</p>
-<p>For example (do not use this example or a similar one for movies for your CA)</p>
-<p>An XML file might be designed to store details on TV series.</p>
-<p>You would expect to store data on the following:</p>
-<p>show name, rating, year produced, creator, year aired, description, cast names, genres etc</p>
-<p>You might start to structure the XML elements by using one Show as a template:</p>
-<p>The show called Firefly has a rating of 9.2 and is classes as a parental guidance show. It is set five hundred years into the future, a renegade crew aboard a small space-craft try to survive as they travel the unknown parts of the galaxy, evading warring factions as well as authority agents out to get them.
-The show was created by Joss Whedon and season 1 was aired in 2002. The cast includes Nathan Fillion, Gina Torres, Alan Tudyk, and Summer Glau. The genres it is classified in are Sci-Fi, Adventure and Drama.</p>
-<p>This is what you XML elements could look like:</p>
-<pre><code>&lt;show id=&quot;001&quot;&gt;
-        &lt;name&gt;Firefly&lt;/name&gt;
-        &lt;rating&gt;9.2&lt;/rating&gt;
-        &lt;age class=&quot;PG&quot; /&gt;
-        &lt;desc&gt;Five hundred years into the future, a renegade crew aboard a
-            small space-craft try to
-            survive as they travel the unknown parts of
-            the galaxy, evading warring
-            factions as well
-            as authority agents out to
-            get them.&lt;/desc&gt;
-        &lt;creator&gt;Joss Whedon&lt;/creator&gt;
-        &lt;aired seasons=&quot;1&quot;&gt;2002-2003&lt;/aired&gt;
-        &lt;cast&gt;
-            &lt;actor&gt;Nathan Fillion &lt;/actor&gt;
-            &lt;actor&gt;Gina Torres &lt;/actor&gt;
-            &lt;actor&gt;Alan Tudyk &lt;/actor&gt;
-            &lt;actor&gt;Summer Glau &lt;/actor&gt;
-        &lt;/cast&gt;
-        &lt;genres&gt;
-            &lt;genre&gt;Sci-Fi&lt;/genre&gt;
-            &lt;genre&gt;Adventure&lt;/genre&gt;
-            &lt;genre&gt;Drama&lt;/genre&gt;
-        &lt;/genres&gt;
-        &lt;image src=&quot;images/firefly.jpg&quot; /&gt;
-    &lt;/show&gt;
+<p>Think about the order of the items, it may not always be the case that the xml file has the order of post_title, date, content and comment correct. How can you write your definition to allow for any order of a list of elements?</p>
+<p>Create a new dtd file in eclipse. Name it couch_manager.dtd</p>
+<p>In your XML file add the correct doctype link to the dtd file</p>
+<pre><code>
+ &lt;!DOCTYPE root_name SYSTEM &quot;path to dtd file&quot;&gt;
+
 </code></pre>
 
-<p>By the end of this lab you must have a working version of your XML elements. The XML file is expected to be submitted through Moodle on Wednesday 24th February.</p>
+<h2>Implement your rules</h2>
+<ul>
+<li>*indicates zero or more occurrences for an element</li>
+<li>+ indicates one or more occurrences for an element</li>
+<li>? indicates either zero occurrences or exactly one occurrence for an element.</li>
+</ul>
+<p>An element name with no qualifying punctuation must occur exactly once.
+Commas between element names indicate they must occur in succession; if commas omitted, elements can occur in any order.</p>
+<p>Save your DTD and check to make sure your XML file validates against your DTD.
+To do this you simply open the XML file in a browser.</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="Exercises">
+    <h2>Exercises</h2>
+<p>Remember to:</p>
+<ul>
+<li>Comment your DTD file</li>
+<li>Section your DTD according to functionality</li>
+<li>Declare all elements contained in your XML file</li>
+<li>Declare all attributes contained in your XML file</li>
+</ul>
+<h2>Examples</h2>
+<pre><code>
+&lt;census-record taker=&quot;3163&quot;&gt;
+  &lt;date&gt;&lt;year&gt;2003&lt;/year&gt;&lt;month&gt;10&lt;/month&gt;&lt;day&gt;11&lt;/day&gt;&lt;/date&gt;
+  &lt;address&gt;
+    &lt;street&gt;471 Skipstone Lane &lt;unit&gt;4-A&lt;/unit&gt;&lt;/street&gt;
+    &lt;city&gt;Emerald City&lt;/city&gt;
+    &lt;county&gt;Greenhill&lt;/county&gt;
+    &lt;country&gt;Oz&lt;/country&gt;
+    &lt;postalcode&gt;885JKL&lt;/postalcode&gt;
+  &lt;/address&gt;
+  .....
+
+</code></pre>
+
+<p>The following rules would apply to the data stored in the above XML file.</p>
+<pre><code>
+&lt;!ELEMENT date (year, month, day)&gt;
+&lt;!ELEMENT year (#PCDATA)&gt;
+&lt;!ELEMENT month (#PCDATA)&gt;
+&lt;!ELEMENT day (#PCDATA)&gt;
+&lt;!ELEMENT address (street, city, county, country, postalcode)&gt;
+&lt;!ELEMENT street (#PCDATA | unit)*&gt;
+&lt;!ELEMENT city (#PCDATA)&gt;
+&lt;!ELEMENT county (#PCDATA)&gt;
+&lt;!ELEMENT country(#PCDATA)&gt;
+&lt;!ELEMENT postalcode #PCDATA&gt;
+&lt;!ELEMENT unit (#PCDATA)&gt;
+
+</code></pre>
+
+<p>The street rule allows for mixed content in the street element.
+The declaration must have #PCDATA first followed by all sub-elements, in this case unit. Each sub-element is separated by | a vertical bar. (This signifies an "OR" operator). The asterisk * here is required. It means that there can be zero or more of whatever comes before it. The character data and the unit data is all optional. The census taker could leave the street element blank and the DTD would validate the file.
+Changing the * to a + is not allowed because this is a mixed content element, street contains character data and other elements, you cannot force the mixed content element to contain character data.</p>
+<pre><code>
+&lt;person employed=&quot;fulltime&quot; pid=&quot;P270405&quot;&gt;
+    &lt;name&gt;
+      &lt;first&gt;Meeble&lt;/first&gt;
+      &lt;last&gt;Bigbug&lt;/last&gt;
+      &lt;junior/&gt;
+    &lt;/name&gt;
+    &lt;age&gt;39&lt;/age&gt;
+    &lt;gender&gt;male&lt;/gender&gt;
+  &lt;/person&gt;
+
+</code></pre>
+
+<p>To write the rules for person element:</p>
+<pre><code>
+&lt;!ELEMENT person (name, age, gender)&gt;
+&lt;!ELEMENT name (first, last, (junior | senior)?)&gt;
+&lt;!ELEMENT age (#PCDATA)&gt;
+&lt;!ELEMENT gender (#PCDATA)&gt;
+&lt;!ELEMENT first(#PCDATA)&gt;
+&lt;!ELEMENT last(#PCDATA)&gt;
+&lt;!ELEMENT junior EMPTY&gt;
+&lt;!ELEMENT senior EMPTY&gt;
+&lt;!ATTLIST person
+    pid       ID                   #REQUIRED
+    employed  (fulltime|parttime)  #IMPLIED&gt;
+
+</code></pre>
+
+<p>The name contains a first and last name and optionally it can have a zero or one junior or senior element.
+The id attribute for person is required as it is defined of type ID.
+The employed attribute is optional and can contain either fulltime or parttime.</p>
+<p>Practice writing DTD rules using the census.xml file
+Also consider your CA work, what rules will you need to write for it?</p>
   </div>
 <script>
 $('.ui.menu .item')

@@ -3,3 +3,44 @@
     | (month, ((year, day) | (day, year)))
     | (day, (month, year) | (year, month)))
     )>
+
+
+ <xs:element name="date">
+ 	  <xs:complexType>
+ 	  	<xs:all>
+ 	  		<xs:element ref="year"/>
+ 	  		<xs:element ref="month"/>
+		    <xs:element ref="day"/>
+		</xs:all>
+	  </xs:complexType>
+</xs:element>
+<xs:element name="year" type="xs:integer"/>
+<xs:element name="month" type="xs:integer"/>
+<xs:element name="day" type="xs:integer"/>
+
+
+<xs:simpleType name="monthNum">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="1"/>
+		<xs:minInclusive value="12"/>
+	</xs:restrition>
+</xs:simpleType>
+<xs:element name="month" type="monthNum"/>
+
+<xs:simpleType name="pcode">
+	<xs:restriction base="xs:token">
+		<xs:pattern value="[0-9]{3}[A-Z]{3}"/>
+	</xs:restriction>
+</xs:simpleType>
+<xs:element name="postalcode" type="pcode">
+
+
+<xs:simpleType name="genderType">
+	<xs:restriction base="xs:token">
+		<xs:enumeration value="female"/>
+		<xs:enumeration value="male"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+	
