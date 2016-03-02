@@ -1,0 +1,215 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Transforming your XML using XSLT
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-8">
+        Lab-8
+    </a>
+      <a class="item" data-tab="01">
+        01
+      </a>
+      <a class="item" data-tab="02">
+        02
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-8">
+    <h1>Objectives</h1>
+<ul>
+<li>Transforming XML with XSLT</li>
+<li>XSLT style sheet</li>
+<li>Root Template</li>
+<li>Outputting HTML</li>
+<li>Looping over Nodes</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="01">
+    <h2>XSLT file</h2>
+<p>Open the project you used for lab02 and lab03 for the ancient wonders XML file.
+Click on the webcontent folder (or the project folder if you do not have a WebContent folder) and create a new file in your project by right clicking choose the New-&gt;Other option and then choose xslt as the file type.</p>
+<p><img alt="" src="./img/xsl_file.jpg"></p>
+<p>Click Next and then name the file ancient_wonders. Click Finish.</p>
+<p><img alt="" src="./img/xsl_file2.jpg"></p>
+<p>A new xsl file opens in your eclipse window, it contains the necessary processing statements, and it also contains a root template.</p>
+<p><img alt="" src="./img/xsl_file3.jpg"></p>
+<p>Your XML file must have a link to the XSLT style sheet.
+When you open your XML document in an XSLT processor or a browser, the instruction tells the processor to perform the XSLT transformation before displaying the document.</p>
+<p>Open the <a href="./archives/wonders_basic.xml">ancient wonders</a> xml file by clicking on the link. In the web browser choose file-&gt;save as, then choose web page xml only as the file type. Save it into the webconent directory of your project. In eclispse refresh the project folder by clicking F5 and you should see the file wonders_basic.xml appear. </p>
+<p>Open it for editing and add the following link. The link should be added directly after the first &lt;?xml version="1.0"?&gt; processing statement.</p>
+<pre><code>
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;ancient_wonders.xsl&quot;?&gt;
+
+</code></pre>
+  </div>
+  <div  class="ui tab segment lab" data-tab="02">
+    <h1>XSL Files</h1>
+<h2>XSL instructions</h2>
+<p>The first step in the XML transformation invovles the XSLT processor analysing the XML document and converting it into a node tree. A node tree is a hierarchical representation of the XML document. In the tree a node is one individual piece of the XML document such as an element, an attribute, or some text content.</p>
+<p>Once the processor has identified the nodes in the source XML, it then looks to an XSLT style sheet for instructions on what to do with those nodes. Those instructions are contained in templates. Eclipse has created the root template for you already. Within the opening and closing tags of that root template is where you will write your html and xsl code.</p>
+<p>To have your XSLT processor output HTML, you will need to use the xsl:output processing instruction. You set the output method to html, xml, or text. If the instruction is omitted, processors will output XML by default.</p>
+<p>Add the following instruction to your xsl file (directly after the xsl:stylesheet tag):</p>
+<pre><code>
+&lt;xsl:output method=&quot;html&quot;/&gt;
+
+</code></pre>
+
+<p>Within the open xsl:template match="/" element and closing element include the following:</p>
+<pre><code>
+&lt;html&gt;
+     &lt;head&gt;
+        &lt;title&gt;Wonders of the world&lt;/title&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+        &lt;p&gt;&lt;xsl:value-of select=&quot;ancient_wonders&quot;&gt;&lt;/xsl:value-of&gt;&lt;/p&gt;
+     &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<p>Here you can see the use of XPATH to locate the node you wish to output. In this example we have given the path to the element called ancient_wonders, this by default means all that is contained in ancient_wonders will be outputted.</p>
+<p>Save your xsl file. Right click on  your xml file and choose Open with -&gt; Other</p>
+<p><img alt="" src="./img/xsl_file4.jpg"></p>
+<p>From the list choose Internal Web Browser.</p>
+<p><img alt="" src="./img/xsl_file5.jpg"></p>
+<p>A new tab will open in your eclipse window, this will display the html output for your xml file, using your xsl file for the transformation.</p>
+<p><img alt="" src="./img/xsl_file6.jpg"></p>
+<p>The one xsl instruction has presented all of the content for the first wonder element. The wonder element has 9 child elements, the conent from all of those child elements is outputed.</p>
+<p>Change the xsl instruction so that only the story element is outputed. Refer to the lecture notes on XPATH or the tutorial on W3C schools website. Save the change to your xsl file and refresh the internal web browser to see the change.</p>
+<h2>Add a heading so your output looks like this:</h2>
+<p><img alt="" src="./img/xsl_file7.jpg"></p>
+<p>For the heading, make sure you use an xsl instruction to output the name of the wonder. At this stage you should have a h1 tag which contains an xsl instruction and then the story is outputted in a p tag.</p>
+<p>Try presenting the wonder element in it's different parts. For example output the name as the heading followed by its location and height then the story. What html elements will you use to present the data?</p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Dr. Brenda Mullally (bmullally@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
