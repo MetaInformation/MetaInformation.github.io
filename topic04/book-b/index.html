@@ -89,8 +89,8 @@ h3
     </a>
   </header>
   <div class="right tab-menu menu">
-    <a class="active item" data-tab="Lab-5">
-        Lab-5
+    <a class="active item" data-tab="Lab-7">
+        Lab-7
     </a>
       <a class="item" data-tab="01">
         01
@@ -100,40 +100,83 @@ h3
 
 <br><br>
 
-  <div  class="ui tab segment lab" data-tab="Lab-5">
+  <div  class="ui tab segment lab" data-tab="Lab-7">
     <h1>Objectives</h1>
 <ul>
-<li>Design your XML file for your continuous assessment</li>
+<li>Create a DTD file for you Continuous Assessment</li>
 </ul>
   </div>
   <div  class="ui tab segment lab" data-tab="01">
-    <h2>Continuous Assessment</h2>
-<p>At the end of this double lab you must know and have started to design your XML file for your project. 
-You must submit to me through Moodle name of your project or topic area and a description of the data you will be storing.</p>
-<p>Here are some ideas:</p>
-<ul>
-<li>a food menu</li>
-<li>a catalog of computer parts</li>
-<li>a magazine </li>
-<li>a library book</li>
-<li>social networking profiles</li>
-<li>itunes music</li>
-<li>movies</li>
-<li>addressbook</li>
-<li>gym membership</li>
-<li>doctors patients</li>
-<li>ebay auction items</li>
-<li>ebay seller information</li>
-<li>A bus schedule </li>
-<li>A family tree (genealogy) </li>
-<li>An email log </li>
-<li>A recipe book </li>
-<li>A menu </li>
-<li>A travel catalog </li>
-<li>TV-listings</li>
-<li>Meeting minutes  </li>
-</ul>
-<p>Pick one or come up with your own and start to plan the data that is to be stored. Each of you need to do a different set of data so when you have chosen tell me and I will cross it off the available list.</p>
+    <h1>Continuous Assessment</h1>
+<p>Open your continuous assessment project in eclipse that contains your xml file.</p>
+<p>Using what you have learned in the previous lab and lectures being to write the necessary rules for your continuous assessment.</p>
+<p>Use the following to remind you of the syntax for writting DTD's</p>
+<h2>Examples</h2>
+<pre><code>
+&lt;census-record taker=&quot;3163&quot;&gt;
+  &lt;date&gt;&lt;year&gt;2003&lt;/year&gt;&lt;month&gt;10&lt;/month&gt;&lt;day&gt;11&lt;/day&gt;&lt;/date&gt;
+  &lt;address&gt;
+    &lt;street&gt;471 Skipstone Lane &lt;unit&gt;4-A&lt;/unit&gt;&lt;/street&gt;
+    &lt;city&gt;Emerald City&lt;/city&gt;
+    &lt;county&gt;Greenhill&lt;/county&gt;
+    &lt;country&gt;Oz&lt;/country&gt;
+    &lt;postalcode&gt;885JKL&lt;/postalcode&gt;
+  &lt;/address&gt;
+  .....
+
+</code></pre>
+
+<p>The following rules would apply to the data stored in the above XML file.</p>
+<pre><code>
+&lt;!ELEMENT date (year, month, day)&gt;
+&lt;!ELEMENT year (#PCDATA)&gt;
+&lt;!ELEMENT month (#PCDATA)&gt;
+&lt;!ELEMENT day (#PCDATA)&gt;
+&lt;!ELEMENT address (street, city, county, country, postalcode)&gt;
+&lt;!ELEMENT street (#PCDATA | unit)*&gt;
+&lt;!ELEMENT city (#PCDATA)&gt;
+&lt;!ELEMENT county (#PCDATA)&gt;
+&lt;!ELEMENT country(#PCDATA)&gt;
+&lt;!ELEMENT postalcode #PCDATA&gt;
+&lt;!ELEMENT unit (#PCDATA)&gt;
+
+</code></pre>
+
+<p>The street rule allows for mixed content in the street element.
+The declaration must have #PCDATA first followed by all sub-elements, in this case unit. Each sub-element is separated by | a vertical bar. (This signifies an "OR" operator). The asterisk * here is required. It means that there can be zero or more of whatever comes before it. The character data and the unit data is all optional. The census taker could leave the street element blank and the DTD would validate the file.
+Changing the * to a + is not allowed because this is a mixed content element, street contains character data and other elements, you cannot force the mixed content element to contain character data.</p>
+<pre><code>
+&lt;person employed=&quot;fulltime&quot; pid=&quot;P270405&quot;&gt;
+    &lt;name&gt;
+      &lt;first&gt;Meeble&lt;/first&gt;
+      &lt;last&gt;Bigbug&lt;/last&gt;
+      &lt;junior/&gt;
+    &lt;/name&gt;
+    &lt;age&gt;39&lt;/age&gt;
+    &lt;gender&gt;male&lt;/gender&gt;
+  &lt;/person&gt;
+
+</code></pre>
+
+<p>To write the rules for person element:</p>
+<pre><code>
+&lt;!ELEMENT person (name, age, gender)&gt;
+&lt;!ELEMENT name (first, last, (junior | senior)?)&gt;
+&lt;!ELEMENT age (#PCDATA)&gt;
+&lt;!ELEMENT gender (#PCDATA)&gt;
+&lt;!ELEMENT first(#PCDATA)&gt;
+&lt;!ELEMENT last(#PCDATA)&gt;
+&lt;!ELEMENT junior EMPTY&gt;
+&lt;!ELEMENT senior EMPTY&gt;
+&lt;!ATTLIST person
+    pid       ID                   #REQUIRED
+    employed  (fulltime|parttime)  #IMPLIED&gt;
+
+</code></pre>
+
+<p>The name contains a first and last name and optionally it can have a zero or one junior or senior element.
+The id attribute for person is required as it is defined of type ID.
+The employed attribute is optional and can contain either fulltime or parttime.</p>
   </div>
 <script>
 $('.ui.menu .item')
