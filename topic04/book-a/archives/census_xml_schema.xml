@@ -1,0 +1,128 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- document element -->
+  <xs:element name="census-record">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="date"/>
+        <xs:element ref="address"/>
+        <xs:element ref="person" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute ref="taker"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Number identifying the census taker (1-9999) -->
+  <xs:attribute name="taker">
+    <xs:simpleType>
+      <xs:restriction base="integer">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="9999"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- structure containing date information -->
+  <!-- this is a simplification over the previous definition using -->
+  <!-- three sub-elements. -->
+  <xs:element name="date" type="date"/>
+
+  <!-- structure containing address information -->
+  <xs:element name="address">
+    <xs:complextype>
+      <xs:all>
+        <xs:element ref="street"/>
+        <xs:element ref="city"/>
+        <xs:element ref="country"/>
+        <xs:element ref="postalcode"/>
+      </xs:all>
+    </xs:complextype>
+  </xs:element>
+
+  <xs:element name="street" type="string"/>
+  <xs:element name="city" type="string"/>
+  <xs:element name="county" type="string"/>
+
+  <!-- postalcode element: uses format 123ABC -->
+  <xs:element name="postalcode"/>
+    <xs:simpleType>
+      <xs:restriction base="string">
+        <xs:pattern value="[0-9]{3}[A-Z]{3}"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- structure containing data for one resident of the household -->
+  <xs:element name="person">
+    <xs:complextype>
+      <xs:all>
+        <xs:element ref="name"/>
+        <xs:element ref="age"/>
+        <xs:element ref="gender"/>
+      </xs:all>
+      <xs:attribute ref="employed"/>
+      <xs:attribute ref="pid"/>
+    </xs:complextype>
+  </xs:element>
+
+  <!-- Employment status: fulltime, parttime, or none -->
+  <xs:attribute name="employed">
+    <xs:simpleType>
+      <xs:restriction base="string">
+        <xs:enumeration value="fulltime"/>
+        <xs:enumeration value="parttime"/>
+        <xs:enumeration value="none"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Number identifying the person (1-999999) -->
+  <xs:attribute name="pid">
+    <xs:simpleType>
+      <xs:restriction base="integer">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="999999"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Age (0-200) -->
+  <xs:element name="age">
+    <xs:complexType>
+      <xs:restriction base="integer">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="200"/>
+      </xs:restriction>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Enumerated type: male or female -->
+  <xs:element name="gender">
+    <xs:simpleType>
+      <xs:restriction base="string">
+        <xs:enumeration value="female"/>
+        <xs:enumeration value="male"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- structure containing the name; note the choice element
+       that allows an optional junior OR senior element -->
+  <xs:element name="name">
+    <xs:complextype>
+      <xs:all>
+        <xs:element ref="first"/>
+        <xs:element ref="last"/>
+      </xs:all>
+      <xs:choice minOccurs="0">
+        <xs:element ref="junior"/>
+        <xs:element ref="senior"/>
+      </xs:choice>
+    </xs:complextype>
+  </xs:element>
+
+  <xs:element name="junior" type="emptyElem"/>
+  <xs:element name="senior" type="emptyElem"/>
+
+  <!-- Defining a type of element that is empty -->
+  <xs:complexType name="emptyElem"/>
+</xs:schema>
