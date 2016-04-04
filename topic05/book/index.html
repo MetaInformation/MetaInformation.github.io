@@ -116,17 +116,17 @@ h3
   <div  class="ui tab segment lab" data-tab="01">
     <h2>XSLT file</h2>
 <p>Open this ancient_wonders.xml file and copy all of the contents into your ancient_wonders xml file you created in lab02 and used again in lab03.</p>
-<p><img alt="" src="./archives/ancient_wonders.xml"></p>
+<p><a href="./archives/ancient_wonders.xml">ancient wonders</a></p>
 <p>Save your file.</p>
 <p>Now create a new file, click on the webcontent folder (or the project folder if you do not have a WebContent folder) and create a new file in your project by right clicking choose the New-&gt;Other option and then choose xslt as the file type.</p>
-<p><img alt="" src="./img/xsl_file.jpg"></p>
+<p><img alt="" src="./img/01.jpg"></p>
 <p>Click Next and then name the file ancient_wonders. Click Finish.</p>
-<p><img alt="" src="./img/xsl_file2.jpg"></p>
+<p><img alt="" src="./img/02.jpg"></p>
 <p>A new xsl file opens in your eclipse window, it contains the necessary processing statements, and it also contains a root template.</p>
-<p><img alt="" src="./img/xsl_file3.jpg"></p>
+<p><img alt="" src="./img/03.jpg"></p>
 <p>Your XML file must have a link to the XSLT style sheet.
 When you open your XML document in an XSLT processor or a browser, the instruction tells the processor to perform the XSLT transformation before displaying the document.</p>
-<p>Open the <a href="./archives/wonders_basic.xml">ancient wonders</a> xml file by clicking on the link. In the web browser choose file-&gt;save as, then choose web page xml only as the file type. Save it into the webconent directory of your project. In eclispse refresh the project folder by clicking F5 and you should see the file wonders_basic.xml appear. </p>
+<p>Open the <a href="./archives/ancient_wonders.xml">ancient wonders</a> xml file by clicking on the link. In the web browser choose file-&gt;save as, then choose web page xml only as the file type. Save it into the webconent directory of your project. In eclispse refresh the project folder by clicking F5 and you should see the file wonders_basic.xml appear. </p>
 <p>Open it for editing and add the following link. The link should be added directly after the first &lt;?xml version="1.0"?&gt; processing statement.</p>
 <pre><code>
 &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;ancient_wonders.xsl&quot;?&gt;
@@ -160,15 +160,15 @@ When you open your XML document in an XSLT processor or a browser, the instructi
 
 <p>Here you can see the use of XPATH to locate the node you wish to output. In this example we have given the path to the element called ancient_wonders, this by default means all that is contained in ancient_wonders will be outputted.</p>
 <p>Save your xsl file. Right click on  your xml file and choose Open with -&gt; Other</p>
-<p><img alt="" src="./img/xsl_file4.jpg"></p>
+<p><img alt="" src="./img/04.jpg"></p>
 <p>From the list choose Internal Web Browser.</p>
-<p><img alt="" src="./img/xsl_file5.jpg"></p>
+<p><img alt="" src="./img/05.jpg"></p>
 <p>A new tab will open in your eclipse window, this will display the html output for your xml file, using your xsl file for the transformation.</p>
-<p><img alt="" src="./img/xsl_file6.jpg"></p>
+<p><img alt="" src="./img/06.jpg"></p>
 <p>The one xsl instruction has presented all of the content for the first wonder element. The wonder element has 9 child elements, the conent from all of those child elements is outputed.</p>
 <p>Change the xsl instruction so that only the story element is outputed. Refer to the lecture notes on XPATH or the tutorial on W3C schools website. Save the change to your xsl file and refresh the internal web browser to see the change.</p>
 <h2>Add a heading so your output looks like this:</h2>
-<p><img alt="" src="./img/xsl_file7.jpg"></p>
+<p><img alt="" src="./img/07.jpg"></p>
 <p>For the heading, make sure you use an xsl instruction to output the name of the wonder. At this stage you should have a h1 tag which contains an xsl instruction and then the story is outputted in a p tag.</p>
 <p>Try presenting the wonder element in it's different parts. For example output the name as the heading followed by its location and height then the story. What html elements will you use to present the data?</p>
   </div>
