@@ -1,0 +1,256 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+    </style>
+
+  </head>
+
+  <body>
+
+  <div class="ui container">
+<style>
+
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Transforming your XML using XSLT
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    <a class="active item" data-tab="Lab-9">
+        Lab-9
+    </a>
+      <a class="item" data-tab="">
+        
+      </a>
+      <a class="item" data-tab="">
+        
+      </a>
+      <a class="item" data-tab="">
+        
+      </a>
+      <a class="item" data-tab="">
+        
+      </a>
+    </div>
+</div>
+
+<br><br>
+
+  <div  class="ui tab segment lab" data-tab="Lab-9">
+    <h1>Objectives</h1>
+<ul>
+<li>XPATH</li>
+<li>Looping through XML data</li>
+<li>For-each instruction</li>
+<li>If instruction</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="">
+    <h2>Couch Manager</h2>
+<ul>
+<li>Open your couch manager project (lab05)</li>
+<li>Create a new XSL file</li>
+<li>In your XML file add a link to the XSL file</li>
+<li>Practice your XSL instructions by ouputing each blog post/article using a for each loop</li>
+<li>Practice your XPATH selection by choosing particular attribute values such as a post id.</li>
+</ul>
+  </div>
+  <div  class="ui tab segment lab" data-tab="">
+    <h1>XPATH</h1>
+<p>Your xsl file should look something like this having completed lab06.</p>
+<p><img alt="" src="../img/01.png"></p>
+<p>Your xml viewed in the browser should look something like this:</p>
+<p><img alt="" src="../img/02.png"></p>
+<p>We now want to practice using XPATH to navigate the nodes.</p>
+<p>Instead of just outputting the first wonder, what if we wanted to output the third wonder.</p>
+<p>We need to adjust the first value-of instruction.</p>
+<pre><code>
+&lt;xsl:value-of select=&quot;ancient_wonders/wonder[3]/name&quot;&gt;&lt;/xsl:value-of&gt;
+
+</code></pre>
+
+<p>Save and then view the xml file in the browser. What do you see? Is the name now the Hanging Gardens of Babylon? What story is presented?</p>
+<p>How do you change the story so that the third one is displayed?</p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="">
+    <h1>Looping</h1>
+<p>So far you have outputed details from only the first wonder element. We have used the \<xsl:value-of select="path"> where the path contained the complete path to a node. For example ancient_wonders/wonder/history/story.</p>
+<p>We now want to output each wonder element so we must use a loop.</p>
+<p>Add the following line of code just before the heading you created for the wonder name.</p>
+<pre><code>&lt;xsl:for-each select=&quot;ancient_wonders/wonder&quot;&gt;
+</code></pre>
+
+<p>Add the following to just after you close the \<p> tag that contains the wonder details.</p>
+<pre><code>&lt;/xsl:for-each&gt;
+</code></pre>
+
+<p>Save your xsl file and refresh the internal web browser. What is displayed? Perhaps nothing?
+When you include this loop in your code you must ensure that once you enter the loop your \<xsl:value-of> instruction points to a child element of that node. You must be aware of the context or node you are located in the tree. At entering the loop you are at the wonder node, what are the children of the wonder node that you want to display?</p>
+<p>If your code looks like this, nothing will be displayed.</p>
+<p><img alt="" src="../img/03.png"></p>
+<p>It is trying to find a child node within the wonder node that matches</p>
+<p>"ancient_wonders/wonder[3]/name" </p>
+<p>Firstly there are no ancient_wonder child nodes in the wonder node.</p>
+<p>Your code therefore should look like this:</p>
+<p><img alt="" src="../img/04.png"></p>
+<p>The loop brings you to the wonder node, once inside the loop it looks for the name node and then the history/story node.</p>
+<p>Your browser should display the xml file like this:</p>
+<p><img alt="" src="../img/06.png"></p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="">
+    <h1>XSLT Instructions</h1>
+<p>If we want to display the English Name for a wonder we can use XPATH to specify the value of an attribute for a particular node.</p>
+<p>Change your code that looks like this:</p>
+<pre><code>
+&lt;xsl:value-of select=&quot;name&quot;&gt;&lt;/xsl:value-of&gt;
+
+</code></pre>
+
+<p>so that it looks like this:</p>
+<pre><code>
+&lt;xsl:value-of select=&quot;name[@language='English']&quot;&gt;&lt;/xsl:value-of&gt;
+
+</code></pre>
+
+<p>Important to note, within the [] you place the test, in this case we are testing if the value of the attribute language holds the word English. The attribute name must match correctly the attribute name in your xml file, the value must also match for the test to be true. You must also use single quotes ' for the value of the attribute otherwise you will get an error.</p>
+<p>In your output in the browser you should see an English name for each wonder.
+Try changing this to Greek and see what happens? How many names are displayed? check in your xml file to see if the number is correct.</p>
+<p>Change the code back to English.</p>
+<h2>If conditions</h2>
+<p>When processing nodes, we may only want to display content based on a certain condition.</p>
+<ul>
+<li>Make a change to how you display the name of the wonder. Output the name in English first and then within a set of brackets display the non English version of the name if it is contained in the xml file.</li>
+</ul>
+<p>To do this we use the \<xsl:if test=""> \</xsl>
+Look at the lecture notes from last week to remind yourself of the syntax or look up <a href="http://www.w3schools.com/xsl/xsl_if.asp">http://www.w3schools.com/xsl/xsl_if.asp</a></p>
+<p>This instruction only offers one condition, here is the pseudo code to help you:</p>
+<pre><code>&lt;h1&gt;
+    xsl instruction to output English name
+    xsl:if name!='English'
+     output ( 
+             xsl instruction to get value-of name!='English'
+             )
+     end if
+&lt;/h1&gt;
+
+</code></pre>
+
+<p>Save the change to your xsl file and refersh the insternal web browser. You should see the following:</p>
+<p><img alt="" src="../img/05.png"></p>
+  </div>
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+   </div>
+
+
+
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Dr. Brenda Mullally (bmullally@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>    <script>
+
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+})    </script>
+
+  </body>
+ </html>
