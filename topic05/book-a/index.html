@@ -92,17 +92,17 @@ h3
     <a class="active item" data-tab="Lab-9">
         Lab-9
     </a>
-      <a class="item" data-tab="">
-        
+      <a class="item" data-tab="01">
+        01
       </a>
-      <a class="item" data-tab="">
-        
+      <a class="item" data-tab="02">
+        02
       </a>
-      <a class="item" data-tab="">
-        
+      <a class="item" data-tab="03">
+        03
       </a>
-      <a class="item" data-tab="">
-        
+      <a class="item" data-tab="04">
+        04
       </a>
     </div>
 </div>
@@ -118,22 +118,12 @@ h3
 <li>If instruction</li>
 </ul>
   </div>
-  <div  class="ui tab segment lab" data-tab="">
-    <h2>Couch Manager</h2>
-<ul>
-<li>Open your couch manager project (lab05)</li>
-<li>Create a new XSL file</li>
-<li>In your XML file add a link to the XSL file</li>
-<li>Practice your XSL instructions by ouputing each blog post/article using a for each loop</li>
-<li>Practice your XPATH selection by choosing particular attribute values such as a post id.</li>
-</ul>
-  </div>
-  <div  class="ui tab segment lab" data-tab="">
+  <div  class="ui tab segment lab" data-tab="01">
     <h1>XPATH</h1>
 <p>Your xsl file should look something like this having completed lab06.</p>
-<p><img alt="" src="../img/01.png"></p>
+<p><img alt="" src="./img/01.png"></p>
 <p>Your xml viewed in the browser should look something like this:</p>
-<p><img alt="" src="../img/02.png"></p>
+<p><img alt="" src="./img/02.png"></p>
 <p>We now want to practice using XPATH to navigate the nodes.</p>
 <p>Instead of just outputting the first wonder, what if we wanted to output the third wonder.</p>
 <p>We need to adjust the first value-of instruction.</p>
@@ -145,7 +135,7 @@ h3
 <p>Save and then view the xml file in the browser. What do you see? Is the name now the Hanging Gardens of Babylon? What story is presented?</p>
 <p>How do you change the story so that the third one is displayed?</p>
   </div>
-  <div  class="ui tab segment lab" data-tab="">
+  <div  class="ui tab segment lab" data-tab="02">
     <h1>Looping</h1>
 <p>So far you have outputed details from only the first wonder element. We have used the \<xsl:value-of select="path"> where the path contained the complete path to a node. For example ancient_wonders/wonder/history/story.</p>
 <p>We now want to output each wonder element so we must use a loop.</p>
@@ -160,17 +150,17 @@ h3
 <p>Save your xsl file and refresh the internal web browser. What is displayed? Perhaps nothing?
 When you include this loop in your code you must ensure that once you enter the loop your \<xsl:value-of> instruction points to a child element of that node. You must be aware of the context or node you are located in the tree. At entering the loop you are at the wonder node, what are the children of the wonder node that you want to display?</p>
 <p>If your code looks like this, nothing will be displayed.</p>
-<p><img alt="" src="../img/03.png"></p>
+<p><img alt="" src="./img/03.png"></p>
 <p>It is trying to find a child node within the wonder node that matches</p>
 <p>"ancient_wonders/wonder[3]/name" </p>
 <p>Firstly there are no ancient_wonder child nodes in the wonder node.</p>
 <p>Your code therefore should look like this:</p>
-<p><img alt="" src="../img/04.png"></p>
+<p><img alt="" src="./img/04.png"></p>
 <p>The loop brings you to the wonder node, once inside the loop it looks for the name node and then the history/story node.</p>
 <p>Your browser should display the xml file like this:</p>
-<p><img alt="" src="../img/06.png"></p>
+<p><img alt="" src="./img/06.png"></p>
   </div>
-  <div  class="ui tab segment lab" data-tab="">
+  <div  class="ui tab segment lab" data-tab="03">
     <h1>XSLT Instructions</h1>
 <p>If we want to display the English Name for a wonder we can use XPATH to specify the value of an attribute for a particular node.</p>
 <p>Change your code that looks like this:</p>
@@ -209,7 +199,35 @@ Look at the lecture notes from last week to remind yourself of the syntax or loo
 </code></pre>
 
 <p>Save the change to your xsl file and refersh the insternal web browser. You should see the following:</p>
-<p><img alt="" src="../img/05.png"></p>
+<p><img alt="" src="./img/05.png"></p>
+  </div>
+  <div  class="ui tab segment lab" data-tab="04">
+    <h2>Couch Manager</h2>
+<ul>
+<li>Open your couch manager project (lab06)</li>
+<li>Create a new XSL file</li>
+<li>In your XML file add a link to the XSL file</li>
+<li>Practice your XSL instructions by ouputing each blog post/article using a for each loop</li>
+<li>Practice your XPATH selection by choosing particular attribute values such as a post id.</li>
+<li>Include an xsl:sort element within the loop for outputing posts.</li>
+<li>Download some of the images from the couchmanager blog site and save them in an img folder within your lab06 folder.</li>
+</ul>
+<p>Below is an example of code suitable for the XML blog I desinged. Use this code and apply it to yours by changing the XPATH in the select="" You also must ensure that in your XML file you have the name of the images you downloaded and saved in the img folder. For example if I downloaded an image and saved it in a folder img, and the image itself is called couchmanager1.jpg then in the xml file the data stored in the image element would be img/couchmanager1.jpg</p>
+<pre><code>
+&lt;xsl:for-each select=&quot;blog/post&quot;&gt;
+    &lt;xsl:sort select=&quot;date/month&quot; order=&quot;descending&quot; data-type=&quot;number&quot;/&gt;
+    &lt;xsl:value-of select=&quot;date/day&quot;&gt;&lt;/xsl:value-of&gt;
+    &lt;xsl:value-of select=&quot;date/month&quot;&gt;&lt;/xsl:value-of&gt;
+    &lt;xsl:value-of select=&quot;date/year&quot;&gt;&lt;/xsl:value-of&gt;
+    &lt;xsl:value-of select=&quot;post_title&quot;&gt;&lt;/xsl:value-of&gt;
+    &lt;img&gt;
+        &lt;xsl:attribute name=&quot;src&quot;&gt;&lt;xsl:value-of select=&quot;image&quot;/&gt;&lt;/xsl:attribute&gt;
+    &lt;/img&gt;
+&lt;/xsl:for-each&gt;
+
+</code></pre>
+
+<p>Alternatively you could apply the sort and the attribute instructions to the ancient wonders xsl file.</p>
   </div>
 <script>
 $('.ui.menu .item')
