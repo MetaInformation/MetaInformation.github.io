@@ -1,1 +1,1 @@
-#Namespaces Schema and RSS
+#Namespaces and RSS
