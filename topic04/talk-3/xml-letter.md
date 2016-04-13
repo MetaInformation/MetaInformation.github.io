@@ -1,1 +1,0 @@
-#Letter example for DTD practice
