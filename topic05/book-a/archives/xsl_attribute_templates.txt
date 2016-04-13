@@ -1,0 +1,61 @@
+css conection
+
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" media="all" href="couchmanager.css" />
+      <meta http-equiv="Content-Type" content="text/html"/>
+      <title>The Couch Manager</title>
+  </head>
+
+
+Image output
+
+
+<xsl:for-each select="content/paragraph">
+   <xsl:value-of select="text"> </xsl:value-of>
+   <xsl:if test="image">
+           <xsl:apply-templates select="image"/>
+   </xsl:if>
+</xsl:for-each>
+
+
+<xsl:template match="image">
+  <img> <xsl:attribute name="src"> <xsl:value-of select="."/></xsl:attribute>
+  </img>
+</xsl:template>
+
+
+for each occurence of a link you could...
+
+<xsl:for-each select="content/paragraph">
+   <xsl:value-of select="text"> </xsl:value-of>
+   <xsl:if test="link">
+           <xsl:apply-templates select="link"/>
+   </xsl:if>
+</xsl:for-each>
+
+<xsl:template match="link">
+  <a><xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>
+  </a>
+</xsl:template>
+
+
+Nested loops:
+
+<xsl:for-each select="blog/post">
+   <xsl:sort select="date/month" order="descending" data-type="number"/>
+   <xsl:sort select="date/day" order="descending" data-type="number"/>
+   <xsl:value-of select="@id"/> 
+   <xsl:value-of select="date/day"></xsl:value-of>
+   <xsl:value-of select="date/month"></xsl:value-of>
+   <xsl:value-of select="date/year"></xsl:value-of>
+   <xsl:value-of select="post_title"></xsl:value-of>
+   <xsl:for-each select="content/paragraph">
+       <xsl:value-of select="text"> </xsl:value-of>
+       <xsl:if test="image">
+       <xsl:apply-templates select="image"/>
+       </xsl:if>
+   </xsl:for-each>
+<br></br>
+</xsl:for-each>
+
