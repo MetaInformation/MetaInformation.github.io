@@ -137,18 +137,18 @@ h3
   </div>
   <div  class="ui tab segment lab" data-tab="02">
     <h1>Looping</h1>
-<p>So far you have outputed details from only the first wonder element. We have used the \<xsl:value-of select="path"> where the path contained the complete path to a node. For example ancient_wonders/wonder/history/story.</p>
+<p>So far you have outputed details from only the first wonder element. We have used the \&lt;xsl:value-of select="path"&gt; where the path contained the complete path to a node. For example ancient_wonders/wonder/history/story.</p>
 <p>We now want to output each wonder element so we must use a loop.</p>
 <p>Add the following line of code just before the heading you created for the wonder name.</p>
 <pre><code>&lt;xsl:for-each select=&quot;ancient_wonders/wonder&quot;&gt;
 </code></pre>
 
-<p>Add the following to just after you close the \<p> tag that contains the wonder details.</p>
+<p>Add the following to just after you close the \&lt;p&gt; tag that contains the wonder details.</p>
 <pre><code>&lt;/xsl:for-each&gt;
 </code></pre>
 
 <p>Save your xsl file and refresh the internal web browser. What is displayed? Perhaps nothing?
-When you include this loop in your code you must ensure that once you enter the loop your \<xsl:value-of> instruction points to a child element of that node. You must be aware of the context or node you are located in the tree. At entering the loop you are at the wonder node, what are the children of the wonder node that you want to display?</p>
+When you include this loop in your code you must ensure that once you enter the loop your \&lt;xsl:value-of&gt; instruction points to a child element of that node. You must be aware of the context or node you are located in the tree. At entering the loop you are at the wonder node, what are the children of the wonder node that you want to display?</p>
 <p>If your code looks like this, nothing will be displayed.</p>
 <p><img alt="" src="./img/03.png"></p>
 <p>It is trying to find a child node within the wonder node that matches</p>
@@ -184,7 +184,7 @@ Try changing this to Greek and see what happens? How many names are displayed? c
 <ul>
 <li>Make a change to how you display the name of the wonder. Output the name in English first and then within a set of brackets display the non English version of the name if it is contained in the xml file.</li>
 </ul>
-<p>To do this we use the \<xsl:if test=""> \</xsl>
+<p>To do this we use the \&lt;xsl:if test=""&gt; \&lt;/xsl&gt;
 Look at the lecture notes from last week to remind yourself of the syntax or look up <a href="http://www.w3schools.com/xsl/xsl_if.asp">http://www.w3schools.com/xsl/xsl_if.asp</a></p>
 <p>This instruction only offers one condition, here is the pseudo code to help you:</p>
 <pre><code>&lt;h1&gt;
